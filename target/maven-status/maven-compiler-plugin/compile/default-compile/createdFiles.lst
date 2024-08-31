@@ -1,0 +1,10 @@
+com/kapsch/weatherapi/dao/WeatherDetailDAO.class
+com/kapsch/weatherapi/dao/WeatherLocationDAO.class
+com/kapsch/weatherapi/model/WeatherDetail.class
+com/kapsch/weatherapi/WeatherDataParser.class
+com/kapsch/weatherapi/App.class
+com/kapsch/weatherapi/model/WeatherLocation.class
+com/kapsch/weatherapi/WeatherServlet.class
+com/kapsch/weatherapi/WeatherApiClient.class
+com/kapsch/weatherapi/CsvGenerator.class
+com/kapsch/weatherapi/service/WeatherService.class
