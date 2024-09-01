@@ -46,6 +46,10 @@ public class WeatherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getPathInfo();
+        // Allow cross-origin requests
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Replace "*" with your Angular app's domain for more security
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
         if (path != null) {
             switch (path) {
@@ -62,6 +66,17 @@ public class WeatherServlet extends HttpServlet {
         } else {
             sendJsonError(response, HttpServletResponse.SC_BAD_REQUEST, "Invalid request path");
         }
+    }
+
+    @Override
+    protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Allow cross-origin requests
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+        // Allow the OPTIONS request to return successfully
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 
     private void handleGetWeatherData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
